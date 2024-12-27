@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Archive Viewer & ZIP Reader</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script type="module" src="script.js" defer></script>
+</head>
+<body>
+    <header id="header" role="banner">
+        <h1 class="header-title">Universal Archive Viewer & ZIP Reader</h1>
+        <button id="theme-toggle" aria-label="Toggle between light and dark modes">Toggle Dark Mode</button>
+    </header>
+
+    <div class="main-container">
+        <aside class="file-explorer">
+            <h2 id="explorer-heading">File Explorer</h2>
+            <div class="upload-area" id="dropZone">
+                <p>Drop your archive file here or click to select</p>
+                <input type="file" id="archiveInput" accept=".zip,.7z" style="display: none;">
+            </div>
+            <input type="text" id="search-box" placeholder="Search files..." aria-label="Search files">
+            <button id="select-directory" onclick="selectDirectory()">Select Directory</button>
+            <div id="file-list" role="tree">
+                <div id="files-container"></div>
+            </div>           
+        </aside>
+
+        <main class="content-area">
+            <div id="right-pane" class="content-area"></div>
+            <div class="error-message" id="errorMessage"></div>
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Processing archive...</p>
+            </div>
+            <div id="imageContainer"></div>
+            <section id="image-display" aria-labelledby="image-display-heading">
+                <h2 id="image-display-heading">Image Display</h2>
+                <div id="loader" style="display: none;" role="status" aria-live="polite">Loading...</div>
+                <div id="error-message" role="alert" style="display: none; color: red;"></div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Universal Archive Viewer & ZIP Reader</p>
+    </footer>
+</body>
+</html>
